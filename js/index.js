@@ -39,4 +39,59 @@ const siteContent = {
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+const newATag = document.createElement('a');
+
+newATag.textContent = "Visit Us";
+
+let newNavigation = document.querySelector('nav');
+newNavigation.append(newATag);
+
+let navigation = document.querySelectorAll('a');
+navigation[0].textContent = (siteContent["nav"]["nav-item-1"]);
+navigation[1].textContent = (siteContent["nav"]["nav-item-2"]);
+navigation[2].textContent = (siteContent["nav"]["nav-item-3"]);
+navigation[3].textContent = (siteContent["nav"]["nav-item-4"]);
+navigation[4].textContent = (siteContent["nav"]["nav-item-5"]);
+
+
+
+navigation.forEach(currentValue => {
+  currentValue.style.color = "green";
+});
+
+
+const headerImg = document.getElementById('cta-img');
+headerImg.setAttribute('src', siteContent["cta"]["img-src"]);
+
+const headerHeading = document.querySelector('h1');
+headerHeading.textContent = (siteContent["cta"]["h1"])
+
+const midImg = document.getElementById("middle-img");
+midImg.setAttribute('src', siteContent["main-content"]["middle-img-src"]);
+
+const headerBtn = document.querySelector('button');
+headerBtn.textContent = (siteContent['cta']['button']);
+
+
+const content = document.getElementsByTagName('p');;
+  content[0].textContent = (siteContent["main-content"]["features-content"]);
+  content[1].textContent = (siteContent["main-content"]["about-content"]);
+  content[2].textContent = (siteContent["main-content"]["services-content"]);
+  content[3].textContent = (siteContent["main-content"]["product-content"]);
+  content[4].textContent = (siteContent["main-content"]["vision-content"]);
+  content[5].textContent = (siteContent["contact"]["address"]);
+  content[6].textContent = (siteContent["contact"]["phone"]);
+  content[7].textContent = (siteContent["contact"]["email"]);
+  content[8].textContent = (siteContent["footer"]["copyright"]);
+
+
+
+const headings = document.getElementsByTagName("h4");
+headings[0].textContent = (siteContent["main-content"]["features-h4"]);
+headings[1].textContent = (siteContent["main-content"]["about-h4"]);
+headings[2].textContent = (siteContent["main-content"]["services-h4"]);
+headings[3].textContent = (siteContent["main-content"]["product-h4"]);
+headings[4].textContent = (siteContent["main-content"]["vision-h4"]);
+headings[5].textContent = (siteContent["contact"]["contact-h4"]);
