@@ -50,7 +50,8 @@ headerLinks.forEach(function (item, i) {
 });
 
 const newA = document.createElement('a');
-newA.textContent = "Visit Us"
+newA.textContent = "Visit Us";
+newA.style.color = "green";
 
 const aContent = document.querySelector('nav');
 aContent.append(newA);
