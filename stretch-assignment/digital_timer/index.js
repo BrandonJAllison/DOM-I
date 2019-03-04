@@ -1,4 +1,3 @@
-
 const bodyStyle = document.querySelector('body');
 bodyStyle.style.display = "flex";
 bodyStyle.style.flexDirection = "column";
@@ -21,32 +20,73 @@ buttonDiv.append(startButton);
 buttonDiv.append(resetButton);
 
 
-(function() {
-    "use strict";
-    const secondsLabel = document.getElementById('secondTens'),
-    startButton = document.getElementById('startButton'), 
-    resetButton = document.getElementById('resetButton'), timer = 0;
 
-    startButton.onclick = function() {
-      if (timer) {
-        timer = setInterval(setTime, 1000);
-      }
-    };
+
+const digits = document.querySelector(".digits");
+const secondTens = document.getElementById("secondTens");
+const secondOnes = document.getElementById("secondOnes");
+const msHundreds = document.getElementById("msHundreds");
+const msTens = document.getElementById("msTens");
+const msOnes = document.getElementById("msOnes");
+
+startButton.onclick = function(){
+startButton.style.display = "none";
+timer();
+
+function timer () {
+  init();
   
-    resetButton.onclick = function() {
-      if (timer) {
-        totalSeconds = 10;
-        stop();
+  function init () {
+    let ms = 0;
+    secondTens.innerHTML = "0";
+    secondOnes.innerHTML = "0";
+    msHundreds.innerHTML = "0";
+    msTens.innerHTML = "0";
+    
+    const timerInterval = window.setInterval(() => {
+      ms += 10;
+      if (ms === 10000) {
+        endTimer(timerInterval); 
       }
-    };
+      updateTimer(ms);
+    }, 10);
+  }
   
-    function setTime() {
-      totalSeconds++;
-      secondsLabel.innerHTML = pad(totalSeconds % 60);
+  function increment (string) {
+    let number = Number(string) + 1;
+    return number.toString();
+  }
+
+  function endTimer (intervalId) {
+    clearInterval(intervalId);
+    Array.from(digits.children).forEach(digit => {
+      digit.classList.add("redDigit");
+    })
+  }
+
+  function updateTimer (ms) {
+    if (ms === 10000) {
+      secondTens.innerHTML = "1";
+      secondOnes.innerHTML = "0";
+      msHundreds.innerHTML = "0";
+      msTens.innerHTML = "0";
+    } else if (ms % 1000 === 0) {
+      secondOnes.innerHTML = increment(secondOnes.innerHTML);
+      msHundreds.innerHTML = "0";
+      msTens.innerHTML = "0";
+    } else if (ms % 100 === 0) {
+      msHundreds.innerHTML = increment(msHundreds.innerHTML);
+      msTens.innerHTML = "0";
+    } else {
+      msTens.innerHTML = increment(msTens.innerHTML);
     }
-  
-  
-  })();
+  }
+}
+};
+
+resetButton.onclick = function(){
+   
+}
 
 
 
