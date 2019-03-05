@@ -51,7 +51,8 @@ headerLinks.forEach(function (item, i) {
 
 const newA = document.createElement('a');
 newA.textContent = "Visit Us";
-newA.style.color = "green";
+newA.style.color = 'green';
+
 
 const aContent = document.querySelector('nav');
 aContent.append(newA);
@@ -62,15 +63,17 @@ aContent.append(newA);
 const headerImg = document.getElementById('cta-img');
 headerImg.setAttribute('src', siteContent["cta"]["img-src"]);
 
-const headerHeading = document.querySelector('h1');
-headerHeading.textContent = (siteContent["cta"]["h1"]);
+let ctaText = document.getElementsByClassName("cta-text")[0];
+
+ctaText.getElementsByTagName("h1")[0].innerHTML = siteContent["cta"]["h1"];
+ctaText.getElementsByTagName("button")[0].innerHTML = siteContent["cta"]["button"];
+
 
 
 const midImg = document.getElementById("middle-img");
 midImg.setAttribute('src', siteContent["main-content"]["middle-img-src"]);
 
-const headerBtn = document.querySelector('button');
-headerBtn.textContent = (siteContent['cta']['button']);
+
 
 
 const topContent = document.querySelectorAll('.top-content p');
