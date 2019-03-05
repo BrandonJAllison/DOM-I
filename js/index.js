@@ -65,7 +65,7 @@ headerImg.setAttribute('src', siteContent["cta"]["img-src"]);
 
 let ctaText = document.getElementsByClassName("cta-text")[0];
 
-ctaText.getElementsByTagName("h1")[0].innerHTML = siteContent["cta"]["h1"];
+ctaText.getElementsByTagName("h1")[0].innerHTML = `DOM <br> Is <br> Awesome`;
 ctaText.getElementsByTagName("button")[0].innerHTML = siteContent["cta"]["button"];
 
 
